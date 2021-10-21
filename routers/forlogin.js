@@ -7,7 +7,7 @@ router.get("/", (req, res) => {
   knex
     .select("*")
     .from("information")
-    .where("email", req.body.email)
+    .where("email", req.body.email).orwhere("Number",req.body.Number)
     .then((data) => {
       if (data < 1) {
         res.send("1st signup");
